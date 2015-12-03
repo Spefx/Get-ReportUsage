@@ -1,3 +1,5 @@
+##Run this against IIS Logs, Code is currently using 'C:\temp\Scripts\Get-ReportUsage\Logs' as Log Directory
+
 Function interrogateForReportID {
     
     foreach ($line in $logFile) {
