@@ -1,4 +1,4 @@
-Function intergateForReportID {
+Function interrogateForReportID {
     
     foreach ($line in $logFile) {
         if (($line.contains("ReportID=")) -eq $true) {
@@ -21,8 +21,7 @@ $global:totalReportArray = @()
 Get-ChildItem "C:\temp\Scripts\Get-ReportUsage\Logs" | foreach { 
 
     $global:logFile = get-content $_.FullName
-    intergateForReportID
-    intergateForUsername
+    interrogateForReportID
     Write-Host $_.Fullname 
     date
 
