@@ -1,0 +1,21 @@
+Can also be used to find top users of reports with an aditional " something a bit like:
+
+Edit below Regex to include DOMAIN of enviroment you are trying to run
+
+Function interrogateForUsername {
+    
+    foreach ($line in $logFile) {
+        if (($line.contains("ReportID=")) -eq $true) {
+        
+        if (([Regex]::match($line, "(?:DOMAIN)[^\s]+").success) -eq $true) {
+            $report = [Regex]::match($line, "(?:DOMAIN)[^\s]+").value 
+        }
+        else {
+            $report = "Unknown"
+        }
+           
+        $global:totalUserArray += $report
+   
+        }
+    }
+}
